@@ -66,18 +66,17 @@ public class AI_Entity : MonoBehaviour {
   public float failLength;
   private float currentFailLength;
 
-  
-	// Use this for initialization
-	void Start () {
+  // Use this for initialization
+  void Start () {
     home = this.transform.position;
 
     if (contact == AI_Contact.PLAYER) {
       contactRepresentation = GameObject.FindGameObjectWithTag("Player");
     }
-	}
+  }
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+  // Update is called once per frame
+  void FixedUpdate () {
     currentExecutionStep += 1 * Time.deltaTime;
     
     if (currentFailLength > 0) {
@@ -89,7 +88,7 @@ public class AI_Entity : MonoBehaviour {
       executeBehaviors();
       currentExecutionStep = 0;
     }
-	}
+  }
     
   private bool check;
   private AI_Settings behavior;
