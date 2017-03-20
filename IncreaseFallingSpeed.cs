@@ -29,11 +29,13 @@ public class IncreaseFallingSpeed : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
     if (isPlayer) {
-      if (Mathf.Abs(ManagesPlayer.getInstance().playerPhysicsController.velocity.y) > 80 && ! activatedParticles) {
-        actualStrength += 50;
+      if (ManagesPlayer.getInstance().playerPhysicsController.velocity.magnitude > 80 && ! activatedParticles) {
+        if (ManagesPlayer.getInstance().playerPhysicsController.velocity.y < -80) {
+          actualStrength += 50;
+        }
         ManagesGame.getInstance().utilityFunctions.particleEmission(ManagesPlayer.getInstance().fallingParticleSystem, true);
         activatedParticles = true;
-      } else if (Mathf.Abs(ManagesPlayer.getInstance().playerPhysicsController.velocity.y) < 80) {
+      } else if (ManagesPlayer.getInstance().playerPhysicsController.velocity.magnitude < 80) {
         ManagesGame.getInstance().utilityFunctions.particleEmission(ManagesPlayer.getInstance().fallingParticleSystem, false);
         activatedParticles = false;
       }
