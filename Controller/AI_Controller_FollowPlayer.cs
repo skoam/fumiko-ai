@@ -35,9 +35,7 @@ public class AI_Controller_FollowPlayer : MonoBehaviour {
       }
 
       if (!startedBehavior && entity.playActivationSound) {
-        ManagesSound.getInstance().playSound(
-          entity.activationSound,
-          entity.activationSoundLevel);
+        entity.playSound();
       }
 
       if (entity.playCombatMusic && !ManagesSound.getInstance().hackingEntities.Contains(this.gameObject)) {
@@ -65,7 +63,7 @@ public class AI_Controller_FollowPlayer : MonoBehaviour {
       ManagesPostProcessing.getInstance().hackingEntities.Remove(this.gameObject);
     }
 
-    if (entity.activationHint != null) {
+    if (!entity.keepHintActive && entity.activationHint != null) {
       entity.activationHint.SetActive(false);
     }
 

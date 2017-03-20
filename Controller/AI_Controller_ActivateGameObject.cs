@@ -19,6 +19,10 @@ public class AI_Controller_ActivateGameObject : MonoBehaviour {
       foreach (GameObject target in entity.activateTargets) {
         target.SetActive(entity.activate);
       }
+
+      foreach (Trigger_IncreaseTriggerValue increaseTriggerValue in entity.runIncreaseTrigger) {
+        increaseTriggerValue.run();
+      }
       
       if (!entity.repeatActivation) {
         ended = true;

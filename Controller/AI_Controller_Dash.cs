@@ -78,7 +78,9 @@ public class AI_Controller_Dash : MonoBehaviour {
       ManagesGame.getInstance().utilityFunctions.particleEmission(entity.dashEffect, false);
 
       if (entity.dashRenderer != null) {
-        entity.dashRenderer.enabled = true;
+        if (entity.deathController != null && !entity.deathController.hasDied()) {
+          entity.dashRenderer.enabled = true;
+        }
       }
     }
 

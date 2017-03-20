@@ -2,5 +2,8 @@ public enum AI_Contact {
   PLAYER,
   OTHER_ENEMIES,
   ALL,
-  PREDEFINED
+  PREDEFINED,
+  TAG,
+  RANDOM_FROM_TEAM,
+  NEAREST_FROM_TEAM
 }
